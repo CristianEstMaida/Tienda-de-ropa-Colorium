@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda en línea</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Agrega tus estilos personalizados aquí -->
+</head>
+<body>
+  <header>
+    <h1>Tienda en línea</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+        <h2>Contacto</h2>
+        <form id="contact-form">
+          <div>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit">Enviar</button>
+        </form>
+    </section>
+    <script>
+        const contactForm = document.getElementById("contact-form");
+
+        contactForm.addEventListener("submit", e => {
+        e.preventDefault();
+
+        // Obtener los datos del formulario
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        // Crear objeto de datos a enviar al servidor
+        const data = {
+            name: name,
+            email: email,
+            message: message
+        };
+
+        // Enviar los datos al servidor
+        fetch("/api/contact", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+            if (response.ok) {
+                // Envío exitoso, mostrar mensaje de confirmación
+                alert("Gracias por contactarnos. Te responderemos pronto.");
+                contactForm.reset();
+            } else {
+                // Error en el envío, mostrar mensaje de error
+                alert("Error al enviar el formulario. Por favor, inténtalo de nuevo.");
+            }
+            })
+            .catch(error => {
+            // Error en la comunicación con el servidor, mostrar mensaje de error
+            alert("Error en la comunicación con el servidor. Por favor, inténtalo de nuevo más tarde.");
+            console.error(error);
+            });
+        });
+    </script>
+  </main>
+
+  <footer>
+    <p>Derechos de autor &copy; 2023 Tienda en línea. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
