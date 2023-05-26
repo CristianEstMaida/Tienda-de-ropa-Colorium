@@ -55,11 +55,6 @@ section {
     margin-bottom: 20px;
 }
 
-section div a{
-    color: #ffffff;
-    text-decoration: none;
-}
-
 h2 {
     font-size: 20px;
     color: #ffffff;
@@ -92,6 +87,11 @@ h2 {
 
 .product p {
     margin: 5px 0;
+}
+
+.product a{
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .product button {
