@@ -102,7 +102,13 @@
       `;
 
       // Agregar el contenido al PDF
-      doc.fromHTML(content, 15, 15);
+      if (cartItems.length === 0) {
+          alert("El carrito está vacío. Por favor, agrega productos antes de realizar la compra.");
+          return;
+      }
+      else{
+        doc.fromHTML(content, 15, 15);
+      }
       // Opciones de configuración para el método fromHTML
       const options = {
         margin: {
