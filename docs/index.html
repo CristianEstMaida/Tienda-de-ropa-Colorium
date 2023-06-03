@@ -91,12 +91,14 @@
       const doc = new jsPDF();
       const cartItemsContainer = document.getElementById("cart-items");
       const cartTotalElement = document.getElementById("cart-total");
+   
       // Configurar el contenido del PDF
       const content = `
         <h1>Comprobante de Compra</h1>
         <h2>Productos:</h2>
          <ul>
-            ${cartItemsContainer.map(item => `<li>${item.name} - $${item.price}</li>`).join('')}
+            ${cartItemsContainer..map((product) => `${product.name} - $${product.price}`)
+    .join("\n");}
          </ul>
          <p>Total: $${cartTotalElement}</p>
       `;
