@@ -61,6 +61,11 @@
       </div>
       <p>Total: <span id="cart-total">$0.00</span></p>
       <button onclick="window.location.href='http://link.mercadopago.com.ar/colorium'">Realizar compra con Mercado Pago</button>
+      <button onclick="mostrarDatosTransferencia()">Realizar transferencia bancaria</button>
+      <p id="nombre" style="display: none;">Nombre: Cristian Esteban Maida</p>
+      <p id="cvu" style="display: none;">Número de CVU: 0000003100078348355281</p>
+      <p id="alias" style="display: none;">Alias: angus.rito.apios.mp</p>
+      <p id="cuit" style="display: none;">CUIT/CUIL: 20395500555</p>
       <button onclick="checkout()">Realizar compra</button>
     </section>
   </main>
@@ -70,13 +75,31 @@
   </footer>
 
   <script>
+    
     // Función para buscar productos
     let cartItems = [];
     let cartTotal = 0;
-
+    
+    //
+    
     // Actualizar el carrito inicialmente
     updateCart();
-
+  
+    
+    function mostrarDatosTransferencia() {
+      const nombreElement = document.getElementById("nombre");
+      nombreElement.style.display = "block";
+      
+      const cvuElement = document.getElementById("cvu");
+      cvuElement.style.display = "block";
+      
+      const aliasElement = document.getElementById("alias");
+      aliasElement.style.display = "block";
+      
+      const cuitElement = document.getElementById("cuit");
+      cuitElement.style.display = "block";
+    }
+    
     // Función para agregar un producto al carrito
     function addToCart(product) {
       cartItems.push(product);
