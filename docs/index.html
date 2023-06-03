@@ -121,7 +121,9 @@
           return;
       }
       else{
-        doc.fromHTML(content, 15, 15);
+        doc.text(content, 10, 10);
+        doc.save('comprobante.pdf');
+        //doc.fromHTML(content, 15, 15);
       }
       // Opciones de configuración para el método fromHTML
       const options = {
@@ -134,10 +136,10 @@
       };
 
       // Convertir el contenido HTML a PDF
-      doc.fromHTML(content, options, function () {
+      //doc.fromHTML(content, options, function () {
         // Guardar el archivo PDF con un nombre específico
-        doc.save('comprobante.pdf');
-      });
+        //doc.save('comprobante.pdf');
+      //});
     }
     
     function mostrarDatosTransferencia() {
