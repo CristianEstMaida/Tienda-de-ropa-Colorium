@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda en línea</title>
   <link rel="stylesheet" href="styles.css"> <!-- Agrega tus estilos personalizados aquí -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
 <body>
   <header>
@@ -66,7 +67,7 @@
       <p id="cvu" style="display: none;">Número de CVU: 0000003100078348355281</p>
       <p id="alias" style="display: none;">Alias: angus.rito.apios.mp</p>
       <p id="cuit" style="display: none;">CUIT/CUIL: 20395500555</p>
-      <button onclick="checkout()">Realizar compra</button>
+      <button onclick="generatePDF">Realizar compra</button>
     </section>
   </main>
 
@@ -85,6 +86,39 @@
     // Actualizar el carrito inicialmente
     updateCart();
   
+    function generatePDF() {
+      // Crear un nuevo objeto jsPDF
+      const doc = new jsPDF();
+      const cartItemsContainer = document.getElementById("cart-items");
+      const cartTotalElement = document.getElementById("cart-total");
+      // Configurar el contenido del PDF
+      const content = `
+        <h1>Comprobante de Compra</h1>
+        <h2>Productos:</h2>
+         <ul>
+            ${cartItemsContainer.map(item => `<li>${item.name} - $${item.price}</li>`).join('')}
+         </ul>
+         <p>Total: $${cartTotalElement}</p>
+      `;
+
+      // Agregar el contenido al PDF
+      doc.fromHTML(content, 15, 15);
+      // Opciones de configuración para el método fromHTML
+      const options = {
+        margin: {
+          top: 10,
+          bottom: 10,
+          left: 10,
+          right: 10
+        }
+      };
+
+      // Convertir el contenido HTML a PDF
+      doc.fromHTML(content, options, function () {
+        // Guardar el archivo PDF con un nombre específico
+        doc.save('comprobante.pdf');
+      });
+    }
     
     function mostrarDatosTransferencia() {
       const nombreElement = document.getElementById("nombre");
