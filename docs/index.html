@@ -97,7 +97,7 @@
         <h1>Comprobante de Compra</h1>
         <h2>Productos:</h2>
          <ul>
-            ${cartItemsContainer..map((product) => `${product.name} - $${product.price}`)
+            ${cartItemsContainer.map((product) => `${product.name} - $${product.price}`)
     .join("\n");}
          </ul>
          <p>Total: $${cartTotalElement}</p>
