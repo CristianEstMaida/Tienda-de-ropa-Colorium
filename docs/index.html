@@ -86,11 +86,24 @@
     // Actualizar el carrito inicialmente
     updateCart();
   
+    function getCartItems() {
+      // Retorna los productos del carrito como un arreglo de objetos
+      // Puedes implementar esta función según la estructura de tu carrito   
+      return cartItems;
+    }
+    
+    function getCartTotal() {
+  // Retorna el total de la compra del carrito
+  // Puedes implementar esta función según la estructura de tu carrito
+      return cartTotal;
+    }
+    
     function generatePDF() {
       // Crear un nuevo objeto jsPDF
       const doc = new jsPDF();
-      const cartItemsContainer = document.getElementById("cart-items");
-      const cartTotalElement = document.getElementById("cart-total");
+      const cartItemsContainer = getCartItems();
+      const cartTotalElement = getCartTotal();
+
    
       // Configurar el contenido del PDF
       const content = `
