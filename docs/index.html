@@ -117,7 +117,8 @@
           return;
       }
       else {
-        doc.text(content, 10, 10);
+        doc.setFontSize(12);
+        doc.text(content, 10, 10, { align: "left" });
         doc.save('comprobante.pdf');
       }
       // Opciones de configuración para el método fromHTML
