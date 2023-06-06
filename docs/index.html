@@ -106,9 +106,9 @@
 
    
       // Configurar el contenido del PDF
-      const content = `Presupuesto
+      const content = ` Presupuesto
       Productos:
-      ${cartItems.map((product) => `${product.name} - $${product.price}`).join("\n")}
+      ${cartItems.map((product) => `  ${product.name} - $${product.price}`).join("\n")}
       Total: $${cartTotal}`;
 
       // Agregar el contenido al PDF
