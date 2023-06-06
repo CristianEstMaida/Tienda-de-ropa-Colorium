@@ -101,19 +101,15 @@
     function generatePDF() {
       // Crear un nuevo objeto jsPDF
       const doc = new jsPDF();
-      const cartItemsContainer = getCartItems();
-      const cartTotalElement = getCartTotal();
+      //const cartItemsContainer = getCartItems();
+      //const cartTotalElement = getCartTotal();
 
    
       // Configurar el contenido del PDF
-      const content = `
-        <h1>Presupuesto</h1>
-        <h2>Productos:</h2>
-         <ul>
-            ${cartItems.map((product) => `<li>${product.name} - $${product.price}</li>`).join("")}
-         </ul>
-         <p>Total: $${cartTotal}</p>
-      `;
+      const content = `Presupuesto
+      Productos:
+      ${cartItems.map((product) => `${product.name} - $${product.price}`).join("\n")}
+      Total: $${cartTotal}`;
 
       // Agregar el contenido al PDF
       if (cartItems.length === 0) {
