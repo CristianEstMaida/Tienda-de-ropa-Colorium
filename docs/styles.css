@@ -168,6 +168,10 @@ footer {
     text-align: center;
 }
 
+svg {
+    fill: #ffffff;
+}
+
 /* Estilos específicos para dispositivos móviles */
 
 @media only screen and (max-width: 600px) {
