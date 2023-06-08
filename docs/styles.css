@@ -172,13 +172,13 @@ footer a svg {
     fill: #ffffff;
 }
 
-footer a[href^="http://qr.afip.gob.ar"] {
+footer a[href^="http://qr.afip.gob.ar/?qr=hnazZoCRKo06NlZZpWGOTw,,"] {
   display: inline-block;
   text-decoration: none;
   margin-bottom: 10px;
 }
 
-footer a[href^="http://qr.afip.gob.ar"] img {
+footer a[href^="http://qr.afip.gob.ar/?qr=hnazZoCRKo06NlZZpWGOTw,,"] img {
   max-width: 50%;
   border: 0;
 }
