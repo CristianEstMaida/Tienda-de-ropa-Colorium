@@ -179,7 +179,7 @@ footer a[href^="http://qr.afip.gob.ar"] {
 }
 
 footer a[href^="http://qr.afip.gob.ar"] img {
-  max-width: 100%;
+  max-width: 50%;
   border: 0;
 }
 
