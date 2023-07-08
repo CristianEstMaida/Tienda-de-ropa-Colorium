@@ -69,6 +69,26 @@
       <p id="cuit" style="display: none;">CUIT/CUIL: 20395500555</p>
       <button onclick="generatePDF()">Realizar compra</button>
     </section>
+
+    <section>
+        <h2>Envío a domicilio</h2>
+        <form id="contact-form">
+          <div>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="message">Dirección:</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          
+          <button type="submit">Enviar</button>
+        </form>
+    </section>  
   </main>
 
   <footer>
@@ -83,6 +103,28 @@
   </footer>
 
   <script>
+
+    const contactForm = document.getElementById("contact-form");
+
+    contactForm.addEventListener("submit", e => {
+    e.preventDefault();
+
+    // Obtener los datos del formulario
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    
+     // Crear el enlace de correo electrónico con los valores del formulario
+    const mailtoLink = `mailto:cristianmaida@outlook.com?subject=Contacto&body=Nombre: ${name}%0AEmail: ${email}%0AMensaje: ${message}`;
+
+    // Abrir el enlace de correo electrónico
+    window.location.href = mailtoLink;
+    // Crear objeto de datos a enviar al servidor
+    const data = {
+        name: name,
+        email: email,
+        message: message
+    };
     
     // Función para buscar productos
     let cartItems = [];
