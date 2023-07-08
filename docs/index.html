@@ -107,25 +107,25 @@
     const contactForm = document.getElementById("contact-form");
 
     contactForm.addEventListener("submit", e => {
-    e.preventDefault();
-
-    // Obtener los datos del formulario
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-    
-     // Crear el enlace de correo electrónico con los valores del formulario
-    const mailtoLink = `mailto:cristianmaida@outlook.com?subject=Contacto&body=Nombre: ${name}%0AEmail: ${email}%0AMensaje: ${message}`;
-
-    // Abrir el enlace de correo electrónico
-    window.location.href = mailtoLink;
-    // Crear objeto de datos a enviar al servidor
-    const data = {
-        name: name,
-        email: email,
-        message: message
-    };
-    
+      e.preventDefault();
+  
+      // Obtener los datos del formulario
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+      
+       // Crear el enlace de correo electrónico con los valores del formulario
+      const mailtoLink = `mailto:cristianmaida@outlook.com?subject=Contacto&body=Nombre: ${name}%0AEmail: ${email}%0AMensaje: ${message}`;
+  
+      // Abrir el enlace de correo electrónico
+      window.location.href = mailtoLink;
+      // Crear objeto de datos a enviar al servidor
+      const data = {
+          name: name,
+          email: email,
+          message: message
+      };
+    });
     // Función para buscar productos
     let cartItems = [];
     let cartTotal = 0;
